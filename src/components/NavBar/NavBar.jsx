@@ -5,11 +5,16 @@ import SearchBox from './SearchBox/SearchBox';
 
 const NavBar = ({applyFilters, searchBeers}) =>{
     const [searchTerm, setSearchTerm] = useState("");
+
   const handleInput = (event) => {
     const getLowerCaseSearch = event.target.value.toLowerCase();
-    setSearchTerm(getLowerCaseSearch);
-    searchBeers(searchTerm);
+
   };
+
+const searchedBeers = beerArr.filter((beer) => {
+      const beerLowerCase = beer.name.toLowerCase();
+      return beerLowerCase.includes(input);
+    });
 
   return (
     <>

@@ -1,7 +1,7 @@
 import './Main.scss';
 import CardList from './CardList/CardList';
 
-const Main = ({beerArr, getBeers}) =>{
+const Main = ({beerArr}) =>{
 
     return(
     <>
