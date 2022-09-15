@@ -6,16 +6,18 @@ import NavBar from './components/NavBar/NavBar';
 
 
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
+
 
 function App() {
   const [beerArr,setBeerArr] = useState([]);
+  const [filteredBeerArr,setFilteredBeerArr] = useState([]);
  
-  const getBeers = async (selectedBeers) => {
+  const getBeers = async () => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
     const data = await res.json();
     setBeerArr(data);
-    console.log(data);
+    setFilteredBeerArr(data);
   };
 
   const applyFilters = ()=>{
@@ -23,57 +25,52 @@ function App() {
     const classicRange = document.querySelector('#classicRange');
     const highPH = document.querySelector('#highPH');
     
-    switch (true) {
-      case highAlcoholContent.checked:
-        getBeers(filterBeerByHighAlcoholContent());
-        break;
-      case classicRange.checked:
-        getBeers(filterBeerByClassicRange());
-        break;
-      case highPH.checked:
-        setBeerArr(filterBeerByHighAcidity());
-        break;
-      default:
-        getBeers("https://api.punkapi.com/v2/beers")
-        break;
-    }
+     if(highAlcoholContent.checked){
+        setFilteredBeerArr(filterBeerByHighAlcoholContent());
+      }
+      else if(classicRange.checked){
+        setFilteredBeerArr(filterBeerByClassicRange());
+      }
+      else if(highPH.checked){
+        setFilteredBeerArr(filterBeerByHighAcidity());
+      }
+      else{
+        setFilteredBeerArr([...beerArr]);
+      }
   }
 
 const searchBeers = (input)=>{
   const searchedBeers = beerArr.filter((beer) => {
     const beerLowerCase = beer.name.toLowerCase();
-
     return beerLowerCase.includes(input);
   });
-  setBeerArr(searchedBeers);
+  setFilteredBeerArr(searchedBeers);
 }
 
 const filterBeerByHighAlcoholContent = ()=>{
- return "https://api.punkapi.com/v2/beers?abv_gt=6";
+  return beerArr.filter((beer)=> beer.abv>6);
 }
 
 const filterBeerByClassicRange = ()=>{
-  return "https://api.punkapi.com/v2/beers?brewed_before=01-2010";
+  return beerArr.filter((beer)=>parseInt(beer.first_brewed.split('/')[1])<2010);
   }
 
 const filterBeerByHighAcidity = ()=>{
   return beerArr.filter((beer)=> beer.ph<4);
 }
 
-const populateBeerArr =(outOfBeer)=>{
-  if(beerArr.length===0){
-    getBeers("https://api.punkapi.com/v2/beers");
-  }
-  else if(outOfBeer){
-    //message saying no beer of this filter type kept
-  }
-}
 
-populateBeerArr(false);    
+
+useEffect(()=>{
+  getBeers();
+
+},[])
+
+   
   return (
     <div className="App">
       <NavBar searchBeers={searchBeers} applyFilters ={applyFilters}/>
-     <Main beerArr={beerArr}/>
+     <Main beerArr={filteredBeerArr}/>
     </div>
   );
 }

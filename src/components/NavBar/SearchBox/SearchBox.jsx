@@ -4,7 +4,7 @@ const SearchBox = ({handleInput}) =>{
   
     return(<>
     <p>Search Beers</p>
-    <input type="input" id="searchBox" onInput={handleInput} />
+    <input type="input" id="searchBox" onChange={handleInput} />
     </>)
 }
 
