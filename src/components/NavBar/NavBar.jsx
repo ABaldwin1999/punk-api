@@ -3,6 +3,7 @@ import { useState } from "react";
 import FilterList from './FiltersList/FilterList';
 import SearchBox from './SearchBox/SearchBox';
 
+
 const NavBar = ({applyFilters, searchBeers}) =>{
     const [searchTerm, setSearchTerm] = useState("");
 

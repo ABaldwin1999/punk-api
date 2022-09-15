@@ -1,14 +1,32 @@
+@use "./assets/scss/variables"as *;
+* {
+    margin-top: 0;
+    font-family: $font-main;
+    p{
+        font-family: $font-paragraphs;
+    }
+  }
 .app{
-    background-color: lightgray;
-
+    background-color: $color-primary;
 }
 
 .title{
-    background-color: wheat;
-    border-bottom: 2px solid darkred;
+    background-color: $color-secondary;
+    border-bottom: 2px solid $color-tertiary;
+    display: flex;
+    flex-direction: row;
+    gap: 40%;
     h1{
         text-align: center;
         padding: 10px;
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .home{
+        display: flex;
+        justify-content: left;
     }
 }
 

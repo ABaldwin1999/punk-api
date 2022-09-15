@@ -1,10 +1,12 @@
+@use "../../../assets/scss/variables" as *;
 .card_content{
     width: 200px;
     height: 400px;
     padding: 20px;
-    background-color: wheat;
-    border: 2px solid lightgray;
-    box-shadow: 2px gray;
+    background-color: $color-secondary;
+    border: 2px solid $color-tertiary;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px rgba(black, 0.25);
     text-align: center;
     img{
         height: 200px;

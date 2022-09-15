@@ -1,0 +1,13 @@
+@use "../../../assets/scss/variables" as *;
+.FilterList_button{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    button{
+        background-color: $color-tertiary;
+        color: $color-secondary;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+}

@@ -1,3 +1,4 @@
+@use "../../../assets/scss/variables" as *;
 .filterList{
     display: flex;
     justify-content: center;
@@ -13,11 +14,20 @@
         justify-content: center;
         padding: 10px;
         button{
-            background-color: darkred;
-            color: wheat;
+            background-color: $color-tertiary;
+            color: $color-secondary;
             padding: 10px;
         }
     }
+}
+
+.hideFilters{
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    text-align: center;
+    padding-right: 10px;
+    
 }
 
 @media only screen and (min-width: 768px) {

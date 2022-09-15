@@ -4,10 +4,11 @@ import './App.scss';
 import Main from './components/Main/Main';
 import NavBar from './components/NavBar/NavBar';
 import BeerInfo from './components/Main/BeerInfo/BeerInfo';
+import Button from './components/NavBar/Button/Button';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState,useEffect } from "react";
-
+import { Link } from 'react-router-dom';
 
 function App() {
   const [beerArr,setBeerArr] = useState([]);
@@ -24,14 +25,14 @@ function App() {
     const highAlcoholContent = document.querySelector('#highAlcoholContent');
     const classicRange = document.querySelector('#classicRange');
     const highPH = document.querySelector('#highPH');
-    
+    setFilteredBeerArr([...beerArr]);
      if(highAlcoholContent.checked){
         setFilteredBeerArr(filterBeerByHighAlcoholContent());
       }
-      else if(classicRange.checked){
+      if(classicRange.checked){
         setFilteredBeerArr(filterBeerByClassicRange());
       }
-      else if(highPH.checked){
+      if(highPH.checked){
         setFilteredBeerArr(filterBeerByHighAcidity());
       }
       else{
@@ -53,11 +54,11 @@ const filterBeerByHighAlcoholContent = ()=>{
 }
 
 const filterBeerByClassicRange = ()=>{
-  return beerArr.filter((beer)=>parseInt(beer.first_brewed.split('/')[1])<2010);
+  return filteredBeerArr.filter((beer)=>parseInt(beer.first_brewed.split('/')[1])<2010);
   }
 
 const filterBeerByHighAcidity = ()=>{
-  return beerArr.filter((beer)=> beer.ph<4);
+  return filteredBeerArr.filter((beer)=> beer.ph<4);
 }
 
 
@@ -71,7 +72,10 @@ useEffect(()=>{
   return (
      <Router>
       <div className="app">
-        <header className='title'><h1>Beers</h1></header>
+        <header className='title'>
+         <Link to={'/'} style={{ textDecoration: 'none' }}><Button className={"home"} buttonText="Home"/></Link>
+          <h1>Beers</h1>
+          </header>
       <div className='mainPage'>
       <NavBar searchBeers={searchBeers} applyFilters ={applyFilters}/>
   

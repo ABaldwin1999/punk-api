@@ -3,7 +3,6 @@ import './SearchBox.scss';
 const SearchBox = ({handleInput,searchTerm}) =>{
   
     return(<div className='searchBox'>
-    <label htmlFor="searchBox">Search beers: </label>
     <input type="input" 
     id="searchBox" 
     value={searchTerm} 
