@@ -8,20 +8,16 @@ const NavBar = ({applyFilters, searchBeers}) =>{
 
   const handleInput = (event) => {
     const getLowerCaseSearch = event.target.value.toLowerCase();
-
+    setSearchTerm(getLowerCaseSearch);
+    searchBeers(searchTerm);
   };
 
-const searchedBeers = beerArr.filter((beer) => {
-      const beerLowerCase = beer.name.toLowerCase();
-      return beerLowerCase.includes(input);
-    });
-
   return (
-    <>
+    <div className='navBar'>
       <SearchBox
-        handleInput={handleInput}/>
+        handleInput={handleInput} searchTerm={searchTerm}/>
     <FilterList applyFilters={applyFilters}/>
-    </>)
+    </div>)
 }
 
 export default NavBar;
