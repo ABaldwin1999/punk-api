@@ -1,4 +1,20 @@
 .app{
-    color: yellow;
+    background-color: lightgray;
 
+}
+
+.title{
+    background-color: wheat;
+    border-bottom: 2px solid darkred;
+    h1{
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .mainPage{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
 }

@@ -1,0 +1,11 @@
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    input{
+        padding: 10px;
+    }
+}

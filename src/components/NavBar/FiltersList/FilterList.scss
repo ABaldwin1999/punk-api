@@ -1,0 +1,29 @@
+.filterList{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &_filters{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &_button{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        button{
+            background-color: darkred;
+            color: wheat;
+            padding: 10px;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .filterList_filters{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+}

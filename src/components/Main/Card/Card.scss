@@ -1,10 +1,16 @@
 .card_content{
     width: 200px;
-    height: auto;
+    height: 400px;
     padding: 20px;
-    border: 2px,solid, lightgray;
-    box-shadow: 2px,gray;
+    background-color: wheat;
+    border: 2px solid lightgray;
+    box-shadow: 2px gray;
+    text-align: center;
     img{
         height: 200px;
+    
     }
+}
+.allLinks{
+    text-decoration: none;
 }

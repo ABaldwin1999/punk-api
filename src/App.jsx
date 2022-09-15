@@ -3,9 +3,9 @@ import './App.scss';
 
 import Main from './components/Main/Main';
 import NavBar from './components/NavBar/NavBar';
+import BeerInfo from './components/Main/BeerInfo/BeerInfo';
 
-
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState,useEffect } from "react";
 
 
@@ -45,6 +45,7 @@ const searchBeers = (input)=>{
     return beerLowerCase.includes(input);
   });
   setFilteredBeerArr(searchedBeers);
+  
 }
 
 const filterBeerByHighAlcoholContent = ()=>{
@@ -68,10 +69,29 @@ useEffect(()=>{
 
    
   return (
-    <div className="App">
+     <Router>
+      <div className="app">
+        <header className='title'><h1>Beers</h1></header>
+      <div className='mainPage'>
       <NavBar searchBeers={searchBeers} applyFilters ={applyFilters}/>
-     <Main beerArr={filteredBeerArr}/>
-    </div>
+  
+        <Routes>
+        <Route
+  path="/:beerId"
+  element={<BeerInfo beerArr={filteredBeerArr}/>}
+/>
+
+  <Route
+    path="/"
+    element={
+    <Main beerArr={filteredBeerArr}/>
+    }
+  />
+        </Routes>
+        </div>
+      </div>
+    </Router>
+   
   );
 }
 

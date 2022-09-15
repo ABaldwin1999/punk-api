@@ -1,0 +1,11 @@
+.searchBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+    &_input{
+        height: 20px;
+        padding: 10px;
+    }
+}
