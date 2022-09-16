@@ -15,7 +15,7 @@
     border-bottom: 2px solid $color-tertiary;
     display: flex;
     flex-direction: row;
-    gap: 40%;
+    gap:10%;
     h1{
         text-align: center;
         padding: 10px;
@@ -27,6 +27,7 @@
     .home{
         display: flex;
         justify-content: left;
+        padding: 10px;
     }
 }
 
@@ -34,5 +35,8 @@
     .mainPage{
         display: grid;
         grid-template-columns: 1fr 4fr;
+    }
+    .title{
+        gap: 40%;
     }
 }

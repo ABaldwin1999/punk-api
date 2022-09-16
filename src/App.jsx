@@ -42,12 +42,17 @@ function App() {
   }
 
 const searchBeers = (input)=>{
-  const searchedBeers = filteredBeerArr.filter((beer) => {
-    const beerLowerCase = beer.name.toLowerCase();
-    return beerLowerCase.includes(input);
-  });
-  setFilteredBeerArr(searchedBeers);
-  
+  let searchedBeers = []
+  if(input ==="" || input.length === 1){
+    searchedBeers =[...beerArr]
+  }
+  else{
+    searchedBeers = filteredBeerArr.filter((beer) => {
+      const beerLowerCase = beer.name.toLowerCase();
+      return beerLowerCase.includes(input);
+    });
+  }
+  setFilteredBeerArr(searchedBeers);  
 }
 
 const filterBeerByHighAlcoholContent = (arr)=>{

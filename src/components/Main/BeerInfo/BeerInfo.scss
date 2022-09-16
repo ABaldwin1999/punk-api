@@ -6,19 +6,24 @@
     padding: 10%;
     text-align: center;
     &_img{
-        width: 50%;
         padding: 10px;
         img{
             height: 200px;
         }
     }
-    &_content{
-        width: 50%;
-    }
 }
 @media only screen and (min-width: 768px) {
     .beer-info{
         flex-direction:row;
-       
+        &_img{
+            width: 50%;
+            padding: 10px;
+            img{
+                height: 200px;
+            }
+        }
+        &_content{
+            width: 50%;
+        }
     }
 }
