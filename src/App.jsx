@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import BeerInfo from './components/Main/BeerInfo/BeerInfo';
 import Button from './components/NavBar/Button/Button';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 
