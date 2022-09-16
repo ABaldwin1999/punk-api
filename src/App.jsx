@@ -25,23 +25,24 @@ function App() {
     const highAlcoholContent = document.querySelector('#highAlcoholContent');
     const classicRange = document.querySelector('#classicRange');
     const highPH = document.querySelector('#highPH');
-    setFilteredBeerArr([...beerArr]);
+    const searchBox = document.querySelector('.searchBox_input');
+    searchBox.value="";
+    setFilteredBeerArr(beerArr);
+    let tempFilteredArray =[...beerArr];
      if(highAlcoholContent.checked){
-        setFilteredBeerArr(filterBeerByHighAlcoholContent());
+      tempFilteredArray= filterBeerByHighAlcoholContent([...tempFilteredArray]);
       }
       if(classicRange.checked){
-        setFilteredBeerArr(filterBeerByClassicRange());
+        tempFilteredArray=filterBeerByClassicRange([...tempFilteredArray]);
       }
       if(highPH.checked){
-        setFilteredBeerArr(filterBeerByHighAcidity());
+        tempFilteredArray=filterBeerByHighAcidity([...tempFilteredArray]);
       }
-      else{
-        setFilteredBeerArr([...beerArr]);
-      }
+      setFilteredBeerArr(tempFilteredArray)
   }
 
 const searchBeers = (input)=>{
-  const searchedBeers = beerArr.filter((beer) => {
+  const searchedBeers = filteredBeerArr.filter((beer) => {
     const beerLowerCase = beer.name.toLowerCase();
     return beerLowerCase.includes(input);
   });
@@ -49,16 +50,16 @@ const searchBeers = (input)=>{
   
 }
 
-const filterBeerByHighAlcoholContent = ()=>{
-  return beerArr.filter((beer)=> beer.abv>6);
+const filterBeerByHighAlcoholContent = (arr)=>{
+  return arr.filter((beer)=> beer.abv>6);
 }
 
-const filterBeerByClassicRange = ()=>{
-  return filteredBeerArr.filter((beer)=>parseInt(beer.first_brewed.split('/')[1])<2010);
+const filterBeerByClassicRange = (arr)=>{
+  return arr.filter((beer)=>parseInt(beer.first_brewed.split('/')[1])<2010);
   }
 
-const filterBeerByHighAcidity = ()=>{
-  return filteredBeerArr.filter((beer)=> beer.ph<4);
+const filterBeerByHighAcidity = (arr)=>{
+  return arr.filter((beer)=> beer.ph<4);
 }
 
 
@@ -82,9 +83,7 @@ useEffect(()=>{
         <Routes>
         <Route
   path="/:beerId"
-  element={<BeerInfo beerArr={filteredBeerArr}/>}
-/>
-
+  element={<BeerInfo beerArr={filteredBeerArr}/>}/>
   <Route
     path="/"
     element={

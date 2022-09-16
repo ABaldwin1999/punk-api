@@ -13,8 +13,8 @@ const Card = ({beerArr}) =>{
     }
 
     const cardListJSX = beerArr.map((beer, index) => ( 
-        <div className="card_content">
-           <Link className='allLinks' to ={`/${beer.id}`}  key={index}><img src={beer.image_url} alt={beer.name} /></Link>
+        <div className="card_content" key={index}>
+           <Link className='allLinks' to ={`/${beer.id}`}  ><img src={beer.image_url} alt={beer.name} /></Link>
             <h2>{beer.name}</h2>
             <p>{appendDescription(beer.description)}</p>
         </div> 

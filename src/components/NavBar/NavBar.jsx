@@ -16,7 +16,7 @@ const NavBar = ({applyFilters, searchBeers}) =>{
   return (
     <div className='navBar'>
       <SearchBox
-        handleInput={handleInput} searchTerm={searchTerm}/>
+        handleInput={handleInput}/>
     <FilterList applyFilters={applyFilters}/>
     </div>)
 }
