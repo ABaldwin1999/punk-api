@@ -2,7 +2,7 @@
 Allows you to filter through the first 25 beers from the punk-api(only one call made, then filtered) by checking three criteria(abv>6,ph<4,first made before 2010). 
 A text input box allows you to search beers by name.
 Clicking the home button routes back to the home page.
-Clicking on the image of an individual beer routes to a page with more information on that beer.
+Clicking on the image of each individual beer routes to a page with more information on that beer.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
