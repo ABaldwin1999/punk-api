@@ -13,16 +13,15 @@
 .title{
     background-color: $color-secondary;
     border-bottom: 2px solid $color-tertiary;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-rows:  1fr;
+    grid-template-columns: 1fr 5fr;
     gap:10%;
     h1{
         text-align: center;
         padding: 10px;
         display: flex;
-        justify-content: center;
-        
-        
+        justify-content:left;  
     }
     .home{
         display: flex;

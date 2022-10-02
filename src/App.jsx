@@ -25,8 +25,6 @@ function App() {
     const highAlcoholContent = document.querySelector('#highAlcoholContent');
     const classicRange = document.querySelector('#classicRange');
     const highPH = document.querySelector('#highPH');
-    const searchBox = document.querySelector('.searchBox_input');
-    searchBox.value="";
     setFilteredBeerArr(beerArr);
     let tempFilteredArray =[...beerArr];
      if(highAlcoholContent.checked){
@@ -43,16 +41,17 @@ function App() {
 
 const searchBeers = (input)=>{
   let searchedBeers = []
-  if(input ==="" || input.length === 1){
-    searchedBeers =[...beerArr]
-  }
-  else{
-    searchedBeers = filteredBeerArr.filter((beer) => {
+   if(input ==="" || input.length === 1){
+    applyFilters();
+   }
+   else{
+    searchedBeers = [...filteredBeerArr].filter((beer) => {
       const beerLowerCase = beer.name.toLowerCase();
       return beerLowerCase.includes(input);
     });
+    setFilteredBeerArr(searchedBeers);  
   }
-  setFilteredBeerArr(searchedBeers);  
+  
 }
 
 const filterBeerByHighAlcoholContent = (arr)=>{
