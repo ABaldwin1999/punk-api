@@ -1,8 +1,13 @@
 # punk-api project description
-Allows you to filter through the first 25 beers from the punk-api(only one call made, then filtered) by checking three criteria(abv>6,ph<4,first made before 2010). 
+A React application that pulls data from an external public API and presents it in a dashboard. 
+Allows you to filter through beers from the public punk-api by checking three criteria(abv>6,ph<4,first made before 2010). 
 A text input box allows you to search beers by name.
 Clicking the home button routes back to the home page.
 Clicking on the image of each individual beer routes to a page with more information on that beer.
+
+![image](https://user-images.githubusercontent.com/110024083/201109483-de799eed-d0df-45e6-bfeb-72fb995cffdf.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
